@@ -1,0 +1,1074 @@
+{
+  "info": {
+    "_postman_id": "322a2092-da39-4b02-b550-6a992bacca49",
+    "name": "a2a",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "a2alog",
+      "item": [
+        {
+          "name": "統計查詢",
+          "id": "d2702e9e-3f3a-4ec9-bae0-7e8f69a9f805",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "00D4B152D1A1DCAF7B681955864F6090",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n//   \"userId\": \"user_001\",\n//   \"agentId\": \"agent_math_003\",\n  \"startDate\": \"2026-01-01\",\n  \"endDate\": \"2026-01-27\",\n  \"aggregateBy\": \"day\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{online}}/api/stats/query/user-agent",
+              "host": [
+                "{{online}}"
+              ],
+              "path": [
+                "api",
+                "stats",
+                "query",
+                "user-agent"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "日誌上報",
+          "id": "f2b60194-5002-4e59-831f-b941e4d0ad3e",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"callId\": \"550e8400-e29b-41d4-a716-446655440000\",\n  \"userId\": \"user_12345\",\n  \"agentId\": \"agent_math_001\",\n  \"agentCardUrl\": \"http://example.com/agent/card/math\",\n  \"agentName\": \"数学计算智能体\",\n  \"startTime\": 1703404800000,\n  \"endTime\": 1703404805000,\n  \"durationMs\": 5000,\n  \"status\": \"success\",\n  \"errorMessage\": null,\n  \"sessionId\": \"session_abc123\",\n  \"contextId\": \"context_xyz789\",\n  \"callMode\": \"direct\",\n  \"source\": \"web\",\n  \"serviceName\": \"main_service\",\n  \"conversationId\": \"98c3c58d-d135-0243-fc3d-2516c04f87f6\",\n  \"messageId\": \"3aa3f618-f135-0243-fc42-d293aed2b8ec\",\n  \"requestContent\": \"我有哪些指标可查询\",\n  \"responseContent\": \"已为你返回统计数据\",\n  \"requestParams\": {\n    \"query\": \"计算1+1等于多少\",\n    \"temperature\": 0.7,\n    \"maxTokens\": 1000\n  },\n  \"responseSummary\": {\n    \"result\": \"2\",\n    \"tokensUsed\": 150,\n    \"modelUsed\": \"gpt-4\"\n  },\n  \"metadata\": {\n    \"clientIp\": \"192.168.1.100\",\n    \"userAgent\": \"Mozilla/5.0...\",\n    \"requestId\": \"req_123456\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{online_log}}/api/log/call",
+              "host": [
+                "{{online_log}}"
+              ],
+              "path": [
+                "api",
+                "log",
+                "call"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "日誌上報（批量）",
+          "id": "1b3c71f8-2729-48a8-9e28-3f186214eda3",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": " {\n    \"logs\": [\n      {\n        \"callId\": \"c-001\",\n        \"userId\": \"u-123\",\n        \"agentId\": \"a-456\",\n        \"startTime\": 1733302800,\n        \"endTime\": 1733302805,\n        \"durationMs\": 5000,\n        \"status\": \"success\",\n        \"callMode\": \"sync\",\n        \"source\": \"web\",\n        \"serviceName\": \"a2a-host\"\n      },\n      {\n        \"callId\": \"c-002\",\n        \"userId\": \"u-789\",\n        \"agentId\": \"a-456\",\n        \"startTime\": 1733302810,\n        \"endTime\": 1733302822,\n        \"durationMs\": 12000,\n        \"status\": \"error\",\n        \"errorMessage\": \"timeout\",\n        \"callMode\": \"async\",\n        \"source\": \"api\",\n        \"serviceName\": \"a2a-host\",\n        \"requestContent\": \"hello\",\n        \"responseContent\": null,\n        \"requestParams\": { \"temperature\": 0.7 },\n        \"responseSummary\": { \"tokens\": 120 }\n      }\n    ]\n  }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{online}}/api/log/call/batch",
+              "host": [
+                "{{online}}"
+              ],
+              "path": [
+                "api",
+                "log",
+                "call",
+                "batch"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "明細查詢",
+          "id": "49f9e0d2-17c5-4aa0-bcbc-c7d7696cb7c6",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"startDate\": \"2026-01-01\",\n    \"endDate\": \"2026-01-21\",\n    \"agentName\": \"覆盖智能体\",\n    \"page\": 1,\n    \"pageSize\": 20,\n    \"sortBy\": \"startTime\",\n    \"sortOrder\": \"desc\",\n    \"includeContent\": false,\n    \"includeMetadata\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{local_log}}/api/stats/query/call-details",
+              "host": [
+                "{{local_log}}"
+              ],
+              "path": [
+                "api",
+                "stats",
+                "query",
+                "call-details"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Agent整體統計",
+          "id": "2b6d9599-9554-42dc-be4b-0db039bf0cd1",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"agentName\": \"前端工程师\",\n    \"startDate\": \"2025-12-01\",\n    \"endDate\": \"2026-01-31\",\n    \"includeHourlyDistribution\": true,\n    \"includeTopUsers\": true,\n    \"topUsersLimit\": 10\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{local}}:9999/api/stats/query/agent-summary",
+              "host": [
+                "{{local}}"
+              ],
+              "port": "9999",
+              "path": [
+                "api",
+                "stats",
+                "query",
+                "agent-summary"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "查詢Agent調用User",
+          "id": "8ba6b780-372e-4eeb-869e-1e7247b473ad",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"agentName\": \"前端工程师\",\n    \"startDate\": \"2025-12-01\",\n    \"endDate\": \"2026-01-31\",\n    \"page\": 1,\n    \"pageSize\": 20,\n    \"sortBy\": \"callCount\",\n    \"sortOrder\": \"desc\"\n  }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{local}}:9999/api/stats/query/agent-users",
+              "host": [
+                "{{local}}"
+              ],
+              "port": "9999",
+              "path": [
+                "api",
+                "stats",
+                "query",
+                "agent-users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "時間查詢Agent使用趨勢",
+          "id": "b1b8906d-5ad4-4b12-8cc1-477dbbebba75",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "  {\n    \"agentName\": \"前端工程师\",\n    \"startDate\": \"2025-12-01\",\n    \"endDate\": \"2026-01-07\",\n    \"granularity\": \"day\",\n    // \"metrics\": [\"callCount\", \"successRate\",\"avgDurationMs\"],\n    \"includeComparison\": false\n  }\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{local}}/api/stats/query/agent-trend",
+              "host": [
+                "{{local}}"
+              ],
+              "path": [
+                "api",
+                "stats",
+                "query",
+                "agent-trend"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "查詢User整體使用情況",
+          "id": "2622ab49-8675-471e-b4b0-4e5cd98e25ad",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"userId\": \"user_010\",\n    \"startDate\": \"2025-12-01\",\n    \"endDate\": \"2026-01-07\",\n    \"includeAgentDetails\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{online}}/api/stats/query/user-summary",
+              "host": [
+                "{{online}}"
+              ],
+              "path": [
+                "api",
+                "stats",
+                "query",
+                "user-summary"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "多Agent數據對比",
+          "id": "825f6016-1a6a-48d0-a072-ed2b1be2f1eb",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"agentIds\": [\n        \"agent_math_001\",\n        \"agent_math_002\"\n    ],\n    \"startDate\": \"2025-12-01\",\n    \"endDate\": \"2026-01-07\",\n    \"metrics\": [\n        \"callCount\",\n        \"successRate\"\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{online}}/api/stats/query/agents-compare",
+              "host": [
+                "{{online}}"
+              ],
+              "path": [
+                "api",
+                "stats",
+                "query",
+                "agents-compare"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "實時統計",
+          "id": "cc156668-f238-42d2-aed5-a501de1bd99c",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"agentId\": \"agent_math_001\",\n  \"timeRange\": \"1h\",\n  \"granularity\": \"minute\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{online}}/api/stats/query/realtime",
+              "host": [
+                "{{online}}"
+              ],
+              "path": [
+                "api",
+                "stats",
+                "query",
+                "realtime"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "根據User和Agent的調用統計",
+          "id": "edd615ab-2d98-4e14-859c-52f8205c586a",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": \"user_010\",\n  \"agentId\": \"agent_math_001\",\n  \"startDate\": \"2025-12-01\",\n  \"endDate\": \"2026-01-31\",\n  \"aggregateBy\": \"day\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{online}}/api/stats/query/user-agent",
+              "host": [
+                "{{online}}"
+              ],
+              "path": [
+                "api",
+                "stats",
+                "query",
+                "user-agent"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "手动聚合统计",
+          "id": "0cae2a3a-523e-47ae-8bd9-b63ca82d73a2",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"statDate\": \"2026-01-21\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{local}}:9999/api/stats/aggregate",
+              "host": [
+                "{{local}}"
+              ],
+              "port": "9999",
+              "path": [
+                "api",
+                "stats",
+                "aggregate"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "统计查询",
+          "id": "4c60734e-4c12-44ca-9a4a-5d853da449ea",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{online}}/api/stats/query/user-agent",
+              "host": [
+                "{{online}}"
+              ],
+              "path": [
+                "api",
+                "stats",
+                "query",
+                "user-agent"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "id": "72ceae2c-c575-4913-a498-508d833eb07f",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"startDate\": \"2026-01-17\",\n    \"endDate\": \"2026-01-23\",\n    \"page\": 1,\n    \"pageSize\": 50\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{online_log}}/api/web/stats/query/agent-name-top",
+              "host": [
+                "{{online_log}}"
+              ],
+              "path": [
+                "api",
+                "web",
+                "stats",
+                "query",
+                "agent-name-top"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "9753429f-7d03-47da-9de2-711045cd00a1"
+    },
+    {
+      "name": "agent",
+      "item": [
+        {
+          "name": "获取卡片",
+          "id": "2b42fc02-6489-4c60-a2c6-70b6fc4a6b96",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://192.168.2.69:5354/.well-known/agent.json",
+              "protocol": "http",
+              "host": [
+                "192",
+                "168",
+                "2",
+                "69"
+              ],
+              "port": "5354",
+              "path": [
+                ".well-known",
+                "agent.json"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "a2a",
+          "id": "340a2925-29f8-4dca-a95e-1b122ae75882",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"id\": \"req_ed15572a8be14c5b89718d79c59aa384\",\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"message/stream\",\n    \"params\": {\n        \"message\": {\n            \"contextId\": \"371c222814c54cb8bdef0db5fa405f9f\",\n            \"kind\": \"message\",\n            \"messageId\": \"0b59f4f5-c135-2505-dcf9-67505c0f5eaa\",\n            \"metadata\": {\n                \"conversationId\": \"97ec60c9-8135-2505-dcf3-09b2a8c24df2\",\n                \"timestamp\": 1769410097.675\n            },\n            \"parts\": [\n                {\n                    \"kind\": \"text\",\n                    \"text\": \"画一个电商系统中用户下单到收货的时序图\"\n                }\n            ],\n            \"role\": \"user\"\n        },\n        \"metadata\": {\n            \"source\": \"web\",\n            \"sessionId\": \"E9AB7885A8618398AE0053D360ADB9CF\",\n            \"selectedAgents\": [\n                \"http://192.168.2.69:8088/agent_58ef09c3\"\n            ],\n            \"userId\": \"128\"\n        }\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://192.168.2.69:7002/api/v1/a2a/",
+              "protocol": "http",
+              "host": [
+                "192",
+                "168",
+                "2",
+                "69"
+              ],
+              "port": "7002",
+              "path": [
+                "api",
+                "v1",
+                "a2a",
+                ""
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "ce492052-a1b3-41ee-b6cf-e11a42688645"
+    },
+    {
+      "name": "app",
+      "item": [
+        {
+          "name": "a2a",
+          "id": "884c4cfa-fd6a-4401-b26e-ea2e5b29552c",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"id\": \"req_64ec1902cae44997b4a2b906914a2b78\",\n    \"jsonrpc\": \"2.0\",\n    \"method\": \"message/stream\",\n    \"params\": {\n        \"message\": {\n            \"contextId\": \"e312bbd2-e135-017c-1085-774b0ebe9f12\",\n            \"kind\": \"message\",\n            \"messageId\": \"9b54c2f2-9135-0242-98cb-34493eb07130\",\n            \"metadata\": {\n                \"conversationId\": \"edb98277-8135-0242-98ca-44de5030d7ed\",\n                \"timestamp\": 1767060094.921\n            },\n            \"parts\": [\n                {\n                    \"kind\": \"text\",\n                    \"text\": \"求三角形的面积\"\n                }\n            ],\n            \"role\": \"user\"\n        },\n        \"metadata\": {\n            \"source\": \"web\",\n            \"sessionId\": \"869A0FF13726511BE4FA568821E4BD6A\",\n            \"selectedAgents\": [\n                \"http://192.168.2.69:8001\"\n            ],\n            \"userId\": \"1\"\n        }\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{local}}:28055/api/v1/a2a",
+              "host": [
+                "{{local}}"
+              ],
+              "port": "28055",
+              "path": [
+                "api",
+                "v1",
+                "a2a"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "c82cc651-c7c4-4e16-870d-ccf7882b5ceb"
+    },
+    {
+      "name": "knowledge",
+      "item": [
+        {
+          "name": "请求",
+          "id": "dde7e90a-5d58-4991-8d8b-3e613216b95f",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"question\": \"Google\",\n    \"dataset_ids\": [\n        \"abc65e62e45011f0a9c60242c0a84002\"\n    ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:9224/api/v1/retrieval",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9224",
+              "path": [
+                "api",
+                "v1",
+                "retrieval"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "35801011-7ae7-4339-ae39-589489e28873"
+    },
+    {
+      "name": "Register",
+      "item": [
+        {
+          "name": "获取全部智能体",
+          "id": "07c15d65-f233-4403-8f37-5a6b67599584",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{register}}/api/register/agent/all",
+              "host": [
+                "{{register}}"
+              ],
+              "path": [
+                "api",
+                "register",
+                "agent",
+                "all"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "注册智能体",
+          "id": "0d740076-5af2-4c35-9bc7-a68146a1f2b2",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"agentName\": \"健康顾问\",\n    \"agentCardUrl\": \"http://192.168.2.69:8088/agent_3b4379cd/.well-known/agent.json\",\n    \"profession\": \"\",\n    \"category\": \"\",\n    \"auth_config\": {\n      \"auth_type\": \"{}\"\n    },\n    \"token\": \"{{token}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{register}}/api/register",
+              "host": [
+                "{{register}}"
+              ],
+              "path": [
+                "api",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "注销智能体",
+          "id": "fc5cb6a0-7afc-4fe1-be2d-2ff63ad8444f",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"agentCardUrl\":\"http://192.168.2.69:8088/agent_3b4379cd/.well-known/agent.json\",\n    \"token\":\"{{token}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{register}}/api/register/deregister",
+              "host": [
+                "{{register}}"
+              ],
+              "path": [
+                "api",
+                "register",
+                "deregister"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "获取全部智能体(token)",
+          "id": "cf5320e9-4028-436e-9b15-c6ebff082645",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"token\": \"{{token}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{register}}/api/register/agent/infos",
+              "host": [
+                "{{register}}"
+              ],
+              "path": [
+                "api",
+                "register",
+                "agent",
+                "infos"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "下线智能体",
+          "id": "a957eade-9671-43f6-9ff8-06e18422e81b",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"agentCardUrl\": \"http://192.168.2.69:8088/agent_3b4379cd/.well-known/agent.json\",\n    \"token\": \"{{token}}\"\n  }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{register}}/api/register/agent/offline",
+              "host": [
+                "{{register}}"
+              ],
+              "path": [
+                "api",
+                "register",
+                "agent",
+                "offline"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "上线智能体",
+          "id": "a8a36604-56e4-469a-bb66-a3a20bf76a68",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"agentCardUrl\": \"http://192.168.2.69:8088/agent_3b4379cd/.well-known/agent.json\",\n    \"token\": \"{{token}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{register}}/api/register/agent/online",
+              "host": [
+                "{{register}}"
+              ],
+              "path": [
+                "api",
+                "register",
+                "agent",
+                "online"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "根据id获取Agent",
+          "id": "fce7b61f-bdf5-4ed6-87ff-aad42c128823",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"agentId\": \"1786\",\n    \"token\": \"{{token}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{register}}/api/register/agent/by-id",
+              "host": [
+                "{{register}}"
+              ],
+              "path": [
+                "api",
+                "register",
+                "agent",
+                "by-id"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "更新描述",
+          "id": "60973fd2-5141-4ee7-9545-694e27ea937f",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"agentId\":\"10002\",\n    \"system_description\":\"嘻嘻嘻嘻\",\n    \"effective_type\":\"system\",\n    \"token\": \"{{token}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{register}}/api/register/agent/description/update",
+              "host": [
+                "{{register}}"
+              ],
+              "path": [
+                "api",
+                "register",
+                "agent",
+                "description",
+                "update"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "7bc99445-679d-45f7-aa53-6e378c942179"
+    },
+    {
+      "name": "mtex",
+      "item": [
+        {
+          "name": "删除",
+          "id": "371db549-305a-4865-acca-9efb94410a02",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "token",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"id\":\"2\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{mtex}}/ai/api/v1/register/agent/delete",
+              "host": [
+                "{{mtex}}"
+              ],
+              "path": [
+                "ai",
+                "api",
+                "v1",
+                "register",
+                "agent",
+                "delete"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "获取该用户有权限的智能体",
+          "id": "0b486b5b-92a1-42b8-8fbb-bb3d0e340650",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "token",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{mtex}}/ai/api/v1/register/agent/list",
+              "host": [
+                "{{mtex}}"
+              ],
+              "path": [
+                "ai",
+                "api",
+                "v1",
+                "register",
+                "agent",
+                "list"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "获取该用户有权限的智能体2",
+          "id": "f0bb0fc9-777a-4d17-9f6f-df797358bc1d",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "token",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{mtex}}/auth/um/queryUserPermissions?token={{token}}",
+              "host": [
+                "{{mtex}}"
+              ],
+              "path": [
+                "auth",
+                "um",
+                "queryUserPermissions"
+              ],
+              "query": [
+                {
+                  "key": "token",
+                  "value": "{{token}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "token 校验",
+          "id": "c660d920-f4b4-4bfb-8033-4d8c499fc389",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{mtex}}/auth/session/exist?token=107BF4360550EB11F24288A4E07A8F06",
+              "host": [
+                "{{mtex}}"
+              ],
+              "path": [
+                "auth",
+                "session",
+                "exist"
+              ],
+              "query": [
+                {
+                  "key": "token",
+                  "value": "107BF4360550EB11F24288A4E07A8F06",
+                  "uuid": "c3a61903-dbe5-42e2-a345-aefaae0203b1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "获取token-admin",
+          "id": "fe0d2baa-5f7a-4ef7-b2ce-fad4d20ea760",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "name",
+                  "value": "MYWARtaW4=D",
+                  "type": "text"
+                },
+                {
+                  "key": "password",
+                  "value": "MTXRQbAGF0QWJAMTMxD",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{mtex}}/login/loginCheck",
+              "host": [
+                "{{mtex}}"
+              ],
+              "path": [
+                "login",
+                "loginCheck"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "获取token-xuting",
+          "id": "526becd3-ba05-4b89-b167-a30b4ace685d",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "name",
+                  "value": "MeHAV0aW5nD",
+                  "type": "text"
+                },
+                {
+                  "key": "password",
+                  "value": "MMTAIzNDU2D",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{mtex}}/login/loginCheck",
+              "host": [
+                "{{mtex}}"
+              ],
+              "path": [
+                "login",
+                "loginCheck"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "a31c3983-87ab-4b8b-8266-4867f7931d5d"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{token}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "id": "f7f0751e-c3e0-4202-be92-483dce5a8236",
+      "key": "131_register",
+      "value": "http://192.168.2.69:28000"
+    },
+    {
+      "id": "bccdc5fe-072d-4307-b83c-817c3d67893c",
+      "key": "134_register",
+      "value": "http://192.168.2.69:8000"
+    },
+    {
+      "id": "a7b6f478-d97a-411b-b781-066b09172183",
+      "key": "odev_register",
+      "value": "http://192.168.2.69:7003"
+    },
+    {
+      "id": "ed8f02d6-b531-47d7-8038-4700e0a0a412",
+      "key": "dev_register",
+      "value": "http://127.0.0.1:7003"
+    },
+    {
+      "id": "33c07e09-fd82-42a0-a64f-454190196c73",
+      "key": "register",
+      "value": "http://127.0.0.1:7003"
+    },
+    {
+      "id": "27fcddbb-b988-49a7-b4e5-fb248f605a58",
+      "key": "131_mtex",
+      "value": "http://192.168.1.131:8100/mtex"
+    },
+    {
+      "id": "972e756a-0581-4e25-9dd4-ad25a58f8f2a",
+      "key": "134_mtex",
+      "value": "http://192.168.1.134:8120/mtex"
+    },
+    {
+      "id": "3bd2420a-38a9-4c5f-886c-796f67e032b4",
+      "key": "mtex",
+      "value": "http://192.168.1.131:8100/mtex"
+    },
+    {
+      "id": "8602a223-f3c6-4b3a-9b0e-a7c10fbf0b88",
+      "key": "token",
+      "value": "7C6CBEF5376E307820BA140A2FADE6D9"
+    }
+  ]
+}

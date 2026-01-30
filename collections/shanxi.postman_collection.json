@@ -1,0 +1,56 @@
+{
+  "info": {
+    "_postman_id": "9e2806ed-63e3-489c-9540-61fb44967510",
+    "name": "shanxi",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "shanxi-fault-agents",
+      "item": [
+        {
+          "name": "获取工单号",
+          "id": "8d0fa65d-41e9-4672-a578-12c0d4ac9c45",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "pass-over",
+                "value": "let it go",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"token\": \"C7C5D0C79551B5432BD78BBF469A5872\",\n    \"pageIndex\": 1,\n    \"pageSize\": 10,\n    \"endTime\": \"2025-12-05 17:53:20\",\n    \"beginTime\": \"1970-01-01 00:00:00\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://192.168.0.33:32555/mtex/queryManage/xmModel/querySjDetail",
+              "protocol": "https",
+              "host": [
+                "192",
+                "168",
+                "0",
+                "33"
+              ],
+              "port": "32555",
+              "path": [
+                "mtex",
+                "queryManage",
+                "xmModel",
+                "querySjDetail"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "b3e4aa5c-fe90-46cd-8a85-ddf7dd47b3c8"
+    }
+  ]
+}

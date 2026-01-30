@@ -1,0 +1,17 @@
+{
+  "workspace": {
+    "id": "6a6763bf-cbb2-4a57-86b0-45ff82dd0def"
+  },
+  "entities": {
+    "environments": [],
+    "flows": [],
+    "globals": [],
+    "mocks": [],
+    "specs": [],
+    "collections": [
+      "../collections/a2a.postman_collection.json",
+      "../collections/csair-ics.postman_collection.json",
+      "../collections/shanxi.postman_collection.json"
+    ]
+  }
+}

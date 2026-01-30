@@ -1,0 +1,740 @@
+{
+  "info": {
+    "_postman_id": "97e39f34-8c46-471e-a051-73c4776df428",
+    "name": "csair-ics",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "技能提升资源配置",
+      "item": [
+        {
+          "name": "课室",
+          "item": [
+            {
+              "name": "查询",
+              "id": "2106a98a-8472-4227-ad6a-5c90dbad7abe",
+              "protocolProfileBehavior": {
+                "strictSSL": false,
+                "followRedirects": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "keyWord",
+                      "value": "实验",
+                      "type": "text"
+                    },
+                    {
+                      "key": "siteMin",
+                      "value": "-1",
+                      "type": "text"
+                    },
+                    {
+                      "key": "siteMax",
+                      "value": "-1",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{base_url}}/training/trainingRoom/list",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "training",
+                    "trainingRoom",
+                    "list"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "导入解析的数据",
+              "id": "2e10266d-0c78-4400-b032-31125cfb1dc4",
+              "protocolProfileBehavior": {
+                "strictSSL": false,
+                "followRedirects": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n        \"normalTrainingRooms\": [],\n        \"warmTrainingRooms\": [\n            {\n                \"roomName\": \"101报告厅\",\n                \"position\": \"主楼一层东侧\",\n                \"deviceSupport\": \"3\",\n                \"siteSize\": \"1\",\n                \"remark\": \"2\",\n                \"filePath\": null,\n                \"fileName\": null,\n                \"curUserName\": \"admin\"\n            },\n            {\n                \"roomName\": \"203研讨室\",\n                \"position\": \"VVV\",\n                \"deviceSupport\": \"3\",\n                \"siteSize\": \"1\",\n                \"remark\": \"2\",\n                \"filePath\": null,\n                \"fileName\": null,\n                \"curUserName\": \"admin\"\n            },\n            {\n                \"roomName\": \"VVV\",\n                \"position\": \"实验楼三层301\",\n                \"deviceSupport\": \"3\",\n                \"siteSize\": \"1\",\n                \"remark\": \"2\",\n                \"filePath\": null,\n                \"fileName\": null,\n                \"curUserName\": \"admin\"\n            }\n        ],\n        \"errorTrainingRooms\": [\n            {\n                \"roomName\": null,\n                \"position\": null,\n                \"deviceSupport\": null,\n                \"siteSize\": null,\n                \"remark\": \"\",\n                \"filePath\": null,\n                \"fileName\": null,\n                \"curUserName\": \"admin\"\n            },\n            {\n                \"roomName\": null,\n                \"position\": null,\n                \"deviceSupport\": null,\n                \"siteSize\": null,\n                \"remark\": \"\",\n                \"filePath\": null,\n                \"fileName\": null,\n                \"curUserName\": \"admin\"\n            },\n            {\n                \"roomName\": null,\n                \"position\": null,\n                \"deviceSupport\": null,\n                \"siteSize\": null,\n                \"remark\": \"\",\n                \"filePath\": null,\n                \"fileName\": null,\n                \"curUserName\": \"admin\"\n            },\n            {\n                \"roomName\": null,\n                \"position\": null,\n                \"deviceSupport\": null,\n                \"siteSize\": null,\n                \"remark\": \"\",\n                \"filePath\": null,\n                \"fileName\": null,\n                \"curUserName\": \"admin\"\n            },\n            {\n                \"roomName\": null,\n                \"position\": null,\n                \"deviceSupport\": null,\n                \"siteSize\": null,\n                \"remark\": \"\",\n                \"filePath\": null,\n                \"fileName\": null,\n                \"curUserName\": \"admin\"\n            }\n        ],\n        \"warmTip\": [\n            \"第2行 课室名称为【101报告厅】、所在位置为【主楼一层东侧】的课室信息已录入了系统，请确认是否继续导入并盖已录入信息。\",\n            \"第3行 课室名称为【203研讨室】的课室信息已录入了系统，请确认是否继续导入，继续导入后则直接覆盖已录入课室信息。\",\n            \"第4行 所在位置为【实验楼三层301】的课室信息已录入了系统，请确认是否继续导入，继续导入后则直接覆盖已录入课室信息。\"\n        ],\n        \"errorTip\": [\n            \"第5行 【课室名称】未填写。\",\n            \"第5行 【所在位置】未填写。\",\n            \"第5行 【设备支持】未填写。\",\n            \"第5行 【可利用席位】未填写。\",\n            \"第6行 【课室名称】未填写。\",\n            \"第6行 【所在位置】未填写。\",\n            \"第6行 【设备支持】未填写。\",\n            \"第6行 【可利用席位】未填写。\",\n            \"第7行 【课室名称】未填写。\",\n            \"第7行 【所在位置】未填写。\",\n            \"第7行 【设备支持】未填写。\",\n            \"第7行 【可利用席位】未填写。\",\n            \"第8行 【课室名称】未填写。\",\n            \"第8行 【所在位置】未填写。\",\n            \"第8行 【设备支持】未填写。\",\n            \"第8行 【可利用席位】未填写。\",\n            \"第9行 【课室名称】未填写。\",\n            \"第9行 【所在位置】未填写。\",\n            \"第9行 【设备支持】未填写。\",\n            \"第9行 【可利用席位】未填写。\"\n        ],\n        \"curUserName\": \"admin\"\n    }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/training/trainingRoom/importResolved",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "training",
+                    "trainingRoom",
+                    "importResolved"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "解析文件",
+              "id": "ac491e09-fbab-415d-92dc-bf360ba5731d",
+              "protocolProfileBehavior": {
+                "strictSSL": false,
+                "followRedirects": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "filePath",
+                      "value": "/Users/maanran/Desktop/课室.xlsx",
+                      "type": "text"
+                    },
+                    {
+                      "key": "curUserName",
+                      "value": "admin",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{base_url}}/training/trainingRoom/resolve",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "training",
+                    "trainingRoom",
+                    "resolve"
+                  ]
+                },
+                "description": "``` json\n{\n  \"type\": 0,\n  \"message\": \"SUCCESS\",\n  \"data\": {\n    \"normalTrainingRooms\": [],\n    // 正常的数据\n    \"warmTrainingRooms\": [\n      // 告警数据\n      {\n        \"roomName\": \"测试1280\",\n        //课室名称\n        \"position\": \"测试1280\",\n        // 课室地点\n        \"deviceSupport\": \"投影仪、有线麦克风、活动桌椅\",\n        //设备支持\n        \"siteSize\": \"10\",\n        // 可利用席位\n        \"remark\": \"\",\n        //备注\n        \"filePath\": \"/Users/maanran/Desktop/demo.xlsx\",\n        //文件路径\n        \"fileName\": \"demo.xlsx\",\n        // 文件名称\n        \"curUserName\": \"admin\"\n        //当前用户名称\n      },\n      {\n        \"roomName\": \"测试1281\",\n        \"position\": \"测试1281\",\n        \"deviceSupport\": \"投影仪、有线麦克风、活动桌椅\",\n        \"siteSize\": \"2\",\n        \"remark\": \"\",\n        \"filePath\": \"/Users/maanran/Desktop/demo.xlsx\",\n        \"fileName\": \"demo.xlsx\",\n        \"curUserName\": \"admin\"\n      }\n    ],\n    \"errorTrainingRooms\": [\n      {\n        \"roomName\": \"测试1282\",\n        \"position\": \"测试1282\",\n        \"deviceSupport\": \"投影仪、有线麦克风、活动桌椅\",\n        \"siteSize\": \"1\",\n        \"remark\": \"\",\n        \"filePath\": \"/Users/maanran/Desktop/demo.xlsx\",\n        \"fileName\": \"demo.xlsx\",\n        \"curUserName\": \"admin\"\n      },\n      {\n        \"roomName\": \"测试1282\",\n        \"position\": \"测试1282\",\n        \"deviceSupport\": \"投影仪、有线麦克风、活动桌椅\",\n        \"siteSize\": \"3\",\n        \"remark\": \"\",\n        \"filePath\": \"/Users/maanran/Desktop/demo.xlsx\",\n        \"fileName\": \"demo.xlsx\",\n        \"curUserName\": \"admin\"\n      }\n    ],\n    \"warmTip\": [\n      // 告警提示\n      \"第2行 课室名称为【测试1280】、所在位置为【测试1280】的课室信息已录入了系统，请确认是否继续导入并盖已录入信息。\",\n      \"第3行 课室名称为【测试1281】、所在位置为【测试1281】的课室信息已录入了系统，请确认是否继续导入并盖已录入信息。\"\n    ],\n    \"errorTip\": [\n      // 错误提示\n      \"第4行 导入数据中存到同名称、位置的课室，请修正后再重新导入。\",\n      \"第5行 导入数据中存到同名称、位置的课室，请修正后再重新导入。\"\n    ],\n    \"curUserName\": \"admin\"\n  },\n  \"handleLog\": null\n}\n\n ```"
+              },
+              "response": []
+            }
+          ],
+          "id": "9671c22a-5d5a-4ac9-8504-1e4cc1da5a9b"
+        },
+        {
+          "name": "授课教员",
+          "item": [
+            {
+              "name": "解析文件",
+              "id": "bc6a70ff-42d4-40c0-ab76-b68a02a2e899",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "filePath",
+                      "value": "/Users/maanran/Downloads/技能提升资源配置导入模板（授课人员） -不合法数据.xlsx",
+                      "type": "text"
+                    },
+                    {
+                      "key": "curUserName",
+                      "value": "admin",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{base_url}}/training/trainingInstructor/resolve",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "training",
+                    "trainingInstructor",
+                    "resolve"
+                  ]
+                },
+                "description": "``` json\n{\n  \"type\": 0,\n  \"message\": \"SUCCESS\",\n  \"data\": {\n    \"normalInstructors\": [   // 正常数据\n      {\n        \"instructorName\": \"顾世鹏\",  //姓名\n        \"employeeId\": \"772646\", //工号\n        \"status\": \"在职\", //状态\n        \"department\": \"总公司\", //部门\n        \"position\": \"区域负责人\", //职务\n        \"instructorLevel\": \"1\", //等级\n        \"instructorType\": \"3\", //类型\n        \"qualificationStartDate\": \"2020-10-01\", // 认证开始日期\n        \"qualificationEndDate\": \"2029-01-01\", // 认证结束日期\n        \"remark\": \"测试\", // 备注\n        \"curUserName\": \"admin\", // 当前操作人\n        \"statusEnum\": \"ON_JOB\" // 状态枚举（！！！ 这个回传时要删除）\n      }\n    ],\n    \"warmInstructors\": [   // 预警数据\n      {\n        \"instructorName\": \"唐明艳\",\n        \"employeeId\": \"740871\",\n        \"status\": \"离职\",\n        \"department\": \"在线服务部\",\n        \"position\": \"区域负责人\",\n        \"instructorLevel\": \"2\",\n        \"instructorType\": \"3\",\n        \"qualificationStartDate\": \"2020-10-01\",\n        \"qualificationEndDate\": \"2029-01-01\",\n        \"remark\": \"测试\",\n        \"curUserName\": \"admin\",\n        \"statusEnum\": \"RESIGNED\"\n      }\n    ],\n    \"errorInstructors\": [   // 错误数据\n      {\n        \"instructorName\": \"江敏\",\n        \"employeeId\": \"206999\",\n        \"status\": \"在职\",\n        \"department\": \"华北营销中心\",\n        \"position\": \"\",\n        \"instructorLevel\": \"2\",\n        \"instructorType\": \"21312\",\n        \"qualificationStartDate\": \"2020-10-01\",\n        \"qualificationEndDate\": \"2029-01-01\",\n        \"remark\": \"测试\",\n        \"curUserName\": \"admin\",\n        \"statusEnum\": \"ON_JOB\"\n      },\n      {\n        \"instructorName\": \"毛斯亮\",\n        \"employeeId\": \"312732\",\n        \"status\": \"在职\",\n        \"department\": \"在线服务部\",\n        \"position\": \"国内在线服务岗\",\n        \"instructorLevel\": \"1\",\n        \"instructorType\": \"3\",\n        \"qualificationStartDate\": \"2020-10-01\",\n        \"qualificationEndDate\": \"2029-01-01\",\n        \"remark\": \"测试\",\n        \"curUserName\": \"admin\",\n        \"statusEnum\": \"ON_JOB\"\n      },\n      {\n        \"instructorName\": \"毛斯亮\",\n        \"employeeId\": \"312732\",\n        \"status\": \"在职\",\n        \"department\": \"在线服务部\",\n        \"position\": \"国内在线服务岗\",\n        \"instructorLevel\": \"2\",\n        \"instructorType\": \"3\",\n        \"qualificationStartDate\": \"2020-10-01\",\n        \"qualificationEndDate\": \"2029-01-01\",\n        \"remark\": \"测试\",\n        \"curUserName\": \"admin\",\n        \"statusEnum\": \"ON_JOB\"\n      }\n    ],\n    \"warmTip\": [   // 预警提示\n      \"第4行 工号为【740871】的授课人员已在系统中，继续导入将直接覆盖已录入信息。\"\n    ],\n    \"errorTip\": [   // 错误提示\n      \"第3行 【职位】未填写。\",\n      \"第3行 填写的教员类别不在允许范围内（专职教员、兼职教员、其他）。\",\n      \"第5行 导入数据中存在相同工号【312732】的记录，请修正后重新导入。\",\n      \"第6行 导入数据中存在相同工号【312732】的记录，请修正后重新导入。\"\n    ],\n    \"curUserName\": \"admin\" // 当前操作人\n  },\n  \"handleLog\": null\n}\n\n ```"
+              },
+              "response": []
+            },
+            {
+              "name": "导入解析数据",
+              "id": "2325b322-704a-4acb-b618-32a6a51e7fe0",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"normalInstructors\": [\n        {\n            \"instructorName\": \"顾世鹏\",\n            \"employeeId\": \"772646\",\n            \"status\": \"在职\",\n            \"department\": \"总公司\",\n            \"position\": \"区域负责人\",\n            \"instructorLevel\": \"1\",\n            \"instructorType\": \"3\",\n            \"qualificationStartDate\": \"2020-10-01\",\n            \"qualificationEndDate\": \"2029-01-01\",\n            \"remark\": \"测试\",\n            \"curUserName\": \"admin\"\n        }\n    ],\n    \"warmInstructors\": [\n        {\n            \"instructorName\": \"唐明艳\",\n            \"employeeId\": \"740871\",\n            \"status\": \"离职\",\n            \"department\": \"在线服务部\",\n            \"position\": \"区域负责人\",\n            \"instructorLevel\": \"2\",\n            \"instructorType\": \"3\",\n            \"qualificationStartDate\": \"2020-10-01\",\n            \"qualificationEndDate\": \"2029-01-01\",\n            \"remark\": \"测试\",\n            \"curUserName\": \"admin\"\n        }\n    ],\n    \"errorInstructors\": [\n        {\n            \"instructorName\": \"江敏\",\n            \"employeeId\": \"206999\",\n            \"status\": \"在职\",\n            \"department\": \"华北营销中心\",\n            \"position\": \"\",\n            \"instructorLevel\": \"2\",\n            \"instructorType\": \"21312\",\n            \"qualificationStartDate\": \"2020-10-01\",\n            \"qualificationEndDate\": \"2029-01-01\",\n            \"remark\": \"测试\",\n            \"curUserName\": \"admin\"\n        },\n        {\n            \"instructorName\": \"毛斯亮\",\n            \"employeeId\": \"312732\",\n            \"status\": \"在职\",\n            \"department\": \"在线服务部\",\n            \"position\": \"国内在线服务岗\",\n            \"instructorLevel\": \"1\",\n            \"instructorType\": \"3\",\n            \"qualificationStartDate\": \"2020-10-01\",\n            \"qualificationEndDate\": \"2029-01-01\",\n            \"remark\": \"测试\",\n            \"curUserName\": \"admin\"\n        },\n        {\n            \"instructorName\": \"毛斯亮\",\n            \"employeeId\": \"312732\",\n            \"status\": \"在职\",\n            \"department\": \"在线服务部\",\n            \"position\": \"国内在线服务岗\",\n            \"instructorLevel\": \"2\",\n            \"instructorType\": \"3\",\n            \"qualificationStartDate\": \"2020-10-01\",\n            \"qualificationEndDate\": \"2029-01-01\",\n            \"remark\": \"测试\",\n            \"curUserName\": \"admin\"\n        }\n    ],\n    \"warmTip\": [\n        \"第4行 工号为【740871】的授课人员已在系统中，继续导入将直接覆盖已录入信息。\"\n    ],\n    \"errorTip\": [\n        \"第3行 【职位】未填写。\",\n        \"第3行 填写的教员类别不在允许范围内（专职教员、兼职教员、其他）。\",\n        \"第5行 导入数据中存在相同工号【312732】的记录，请修正后重新导入。\",\n        \"第6行 导入数据中存在相同工号【312732】的记录，请修正后重新导入。\"\n    ],\n    \"curUserName\": \"admin\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/training/trainingInstructor/importResolved",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "training",
+                    "trainingInstructor",
+                    "importResolved"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "新增/更新覆盖",
+              "id": "d23c24bb-d82e-479b-a1fd-1c70ea04e53b",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "instructorName",
+                      "value": "顾世鹏",
+                      "type": "text"
+                    },
+                    {
+                      "key": "employeeId",
+                      "value": "772646",
+                      "type": "text"
+                    },
+                    {
+                      "key": "status",
+                      "value": "在职",
+                      "type": "text"
+                    },
+                    {
+                      "key": "department",
+                      "value": "总公司",
+                      "type": "text"
+                    },
+                    {
+                      "key": "position",
+                      "value": "",
+                      "type": "text"
+                    },
+                    {
+                      "key": "instructorLevel",
+                      "value": "1",
+                      "type": "text"
+                    },
+                    {
+                      "key": "instructorType",
+                      "value": "其他",
+                      "type": "text"
+                    },
+                    {
+                      "key": "remark",
+                      "value": "111",
+                      "type": "text"
+                    },
+                    {
+                      "key": "qualificationStartDate",
+                      "value": "2025-12-10",
+                      "type": "text"
+                    },
+                    {
+                      "key": "qualificationEndDate",
+                      "value": "2026-01-08",
+                      "type": "text"
+                    },
+                    {
+                      "key": "curUserName",
+                      "value": "admin",
+                      "type": "text"
+                    },
+                    {
+                      "key": "isUpdate",
+                      "value": "false",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{base_url}}/training/trainingInstructor/add",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "training",
+                    "trainingInstructor",
+                    "add"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
+          "id": "0a593c64-b629-44eb-a0a2-9bc573d28141"
+        },
+        {
+          "name": "实操辅导员",
+          "item": [
+            {
+              "name": "解析",
+              "id": "824be728-82bb-46de-b673-69f0effada61",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "filePath",
+                      "value": "/Users/maanran/Desktop/实操辅导员.xlsx",
+                      "type": "text"
+                    },
+                    {
+                      "key": "curUserName",
+                      "value": "admin",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{base_url}}/training/practicalInstructor/resolve",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "training",
+                    "practicalInstructor",
+                    "resolve"
+                  ]
+                },
+                "description": "``` json\n{\n    \"type\": 0,\n    \"message\": \"SUCCESS\",\n    \"data\": {\n        \"normalInstructors\": [],\n        \"warmInstructors\": [\n            {\n                \"instructorName\": \"蔡俊斌\",\n                \"employeeId\": \"192599\",\n                \"department\": \"业务管理部\",\n                \"position\": \"经理\",\n                \"status\": \"在职\",\n                \"qualificationStartDate\": \"2025-12-04\",\n                \"qualificationEndDate\": \"2027-01-22\",\n                \"remark\": \"须须修\",\n                \"curUserName\": \"admin\",\n                \"update\": false,\n                \"statusEnum\": \"ON_JOB\"\n            },\n            {\n                \"instructorName\": \"顾世鹏\",\n                \"employeeId\": \"772646\",\n                \"department\": \"总公司\",\n                \"position\": \"区域负责人\",\n                \"status\": \"在职\",\n                \"qualificationStartDate\": \"2025-12-04\",\n                \"qualificationEndDate\": \"2027-01-22\",\n                \"remark\": \"213123123\",\n                \"curUserName\": \"admin\",\n                \"update\": false,\n                \"statusEnum\": \"ON_JOB\"\n            }\n        ],\n        \"errorInstructors\": [\n            {\n                \"instructorName\": \"毛斯亮\",\n                \"employeeId\": \"312732\",\n                \"department\": \"在线服务部\",\n                \"position\": \"国内在线服务岗\",\n                \"status\": \"在职\",\n                \"qualificationStartDate\": \"2025-12-04\",\n                \"qualificationEndDate\": \"2027-01-22\",\n                \"remark\": \"q we q we\",\n                \"curUserName\": \"admin\",\n                \"update\": false,\n                \"statusEnum\": \"ON_JOB\"\n            },\n            {\n                \"instructorName\": \"毛斯亮\",\n                \"employeeId\": \"312732\",\n                \"department\": \"在线服务部\",\n                \"position\": \"国内在线服务岗\",\n                \"status\": \"在职\",\n                \"qualificationStartDate\": \"2025-12-04\",\n                \"qualificationEndDate\": \"2027-01-22\",\n                \"remark\": \"1211\",\n                \"curUserName\": \"admin\",\n                \"update\": false,\n                \"statusEnum\": \"ON_JOB\"\n            }\n        ],\n        \"warmTip\": [\n            \"第2行 工号为【192599】的实操辅导员已在系统中，继续导入将直接覆盖已录入信息。\",\n            \"第3行 工号为【772646】的实操辅导员已在系统中，继续导入将直接覆盖已录入信息。\"\n        ],\n        \"errorTip\": [\n            \"第4行 导入数据中存在相同工号【312732】的记录，请修正后重新导入。\",\n            \"第5行 导入数据中存在相同工号【312732】的记录，请修正后重新导入。\"\n        ],\n        \"curUserName\": \"admin\"\n    },\n    \"handleLog\": null\n}\n\n ```"
+              },
+              "response": []
+            },
+            {
+              "name": "查询",
+              "id": "79b87a34-09b2-4ac2-98cc-bbec6069c6d3",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "keyword",
+                      "value": "顾世鹏",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{base_url}}/training/practicalInstructor/list",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "training",
+                    "practicalInstructor",
+                    "list"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "导入",
+              "id": "54e22bd8-4a9e-4517-97b2-eac1dacac8ff",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"normalInstructors\": [\n        {\n            \"instructorName\": \"顾世鹏\",\n            \"employeeId\": \"772646\",\n            \"department\": \"总公司\",\n            \"position\": \"区域负责人\",\n            \"status\": \"在职\",\n            \"qualificationStartDate\": \"2025-12-04\",\n            \"qualificationEndDate\": \"2027-01-22\",\n            \"remark\": \"213123123\",\n            \"curUserName\": \"admin\"\n        }\n    ],\n    \"warmInstructors\": [\n        {\n            \"instructorName\": \"蔡俊斌\",\n            \"employeeId\": \"192599\",\n            \"department\": \"业务管理部\",\n            \"position\": \"经理\",\n            \"status\": \"在职\",\n            \"qualificationStartDate\": \"2025-12-04\",\n            \"qualificationEndDate\": \"2027-01-22\",\n            \"remark\": \"须须修\",\n            \"curUserName\": \"admin\"\n        }\n    ],\n    \"errorInstructors\": [\n        {\n            \"instructorName\": \"毛斯亮\",\n            \"employeeId\": \"312732\",\n            \"department\": \"在线服务部\",\n            \"position\": \"国内在线服务岗\",\n            \"status\": \"在职\",\n            \"qualificationStartDate\": \"2025-12-04\",\n            \"qualificationEndDate\": \"2027-01-22\",\n            \"remark\": \"q we q we\",\n            \"curUserName\": \"admin\"\n        },\n        {\n            \"instructorName\": \"毛斯亮\",\n            \"employeeId\": \"312732\",\n            \"department\": \"在线服务部\",\n            \"position\": \"国内在线服务岗\",\n            \"status\": \"在职\",\n            \"qualificationStartDate\": \"2025-12-04\",\n            \"qualificationEndDate\": \"2027-01-22\",\n            \"remark\": \"1211\",\n            \"curUserName\": \"admin\"\n        }\n    ],\n    \"warmTip\": [\n        \"第2行 工号为【192599】的实操辅导员已在系统中，继续导入将直接覆盖已录入信息。\"\n    ],\n    \"errorTip\": [\n        \"第4行 导入数据中存在相同工号【312732】的记录，请修正后重新导入。\",\n        \"第5行 导入数据中存在相同工号【312732】的记录，请修正后重新导入。\"\n    ],\n    \"curUserName\": \"admin\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/training/practicalInstructor/importResolved",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "training",
+                    "practicalInstructor",
+                    "importResolved"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "新增/更新",
+              "id": "ff4f2843-dc0a-4000-93cc-e8c7f9543cc8",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "instructorName",
+                      "value": "顾世鹏",
+                      "type": "text"
+                    },
+                    {
+                      "key": "employeeId",
+                      "value": "772646",
+                      "type": "text"
+                    },
+                    {
+                      "key": "department",
+                      "value": "总公司",
+                      "type": "text"
+                    },
+                    {
+                      "key": "position",
+                      "value": "区域负责人",
+                      "type": "text"
+                    },
+                    {
+                      "key": "status",
+                      "value": "在职",
+                      "type": "text"
+                    },
+                    {
+                      "key": "qualificationStartDate",
+                      "value": "2025-12-01",
+                      "type": "text"
+                    },
+                    {
+                      "key": "qualificationEndDate",
+                      "value": "2026-01-14",
+                      "type": "text"
+                    },
+                    {
+                      "key": "curUserName",
+                      "value": "admin",
+                      "type": "text"
+                    },
+                    {
+                      "key": "isUpdate",
+                      "value": "true",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{base_url}}/training/practicalInstructor/add",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "training",
+                    "practicalInstructor",
+                    "add"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
+          "id": "985d9562-ae22-4274-a1fb-ee474b4df87a"
+        },
+        {
+          "name": "评分表",
+          "item": [
+            {
+              "name": "解析",
+              "id": "270de598-5691-467b-9665-2fb8165dca7b",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "{{base_url}}/training/scoreSheet/readExcelDataFromImport?filePath=/Users/maanran/Desktop/评分项.xlsx&curUserName=admin",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "training",
+                    "scoreSheet",
+                    "readExcelDataFromImport"
+                  ],
+                  "query": [
+                    {
+                      "key": "filePath",
+                      "value": "/Users/maanran/Desktop/评分项.xlsx"
+                    },
+                    {
+                      "key": "curUserName",
+                      "value": "admin"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
+          "id": "1449e64b-14ad-41ee-9cc5-0ee921beb3c7"
+        }
+      ],
+      "id": "37e7c0c2-74ef-4877-b63c-49d1c6e55a42"
+    },
+    {
+      "name": "报表",
+      "item": [
+        {
+          "name": "获取员工信息",
+          "id": "2a52ef3c-d375-4b5a-b767-0be9b642c269",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            },
+            "url": {
+              "raw": "{{base_url}}:81/prediction/workMembers/queryTeamMember",
+              "host": [
+                "{{base_url}}"
+              ],
+              "port": "81",
+              "path": [
+                "prediction",
+                "workMembers",
+                "queryTeamMember"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "查询日程申请表列表",
+          "id": "ecdd64f6-37f0-48b2-ad18-570e08a79db9",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "isExport",
+                  "value": "true",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "jsonTitle",
+                  "value": " {\n    \"enTitles\": \"conversationId,departmentName,officeName,groupName,employeeId,userName,serviceTypeName,startTime,endTime,durationHours,remark,queueStatus\",\n    \"chTitles\": \"申请流水号,部门,科室,班组,员工号,员工姓名,日程名称,日程开始时间,日程结束时间,时长,备注,审批状态\"\n  }",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "startTime",
+                  "value": "2025-01-01",
+                  "type": "text"
+                },
+                {
+                  "key": "endTime",
+                  "value": "2025-11-11",
+                  "type": "text"
+                },
+                {
+                  "key": "employeeIds",
+                  "value": "760703",
+                  "type": "text"
+                },
+                {
+                  "key": "applySerialNumbers",
+                  "value": "WF003010000000015",
+                  "type": "text"
+                },
+                {
+                  "key": "status",
+                  "value": "申请休假",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}:81/query/report/querySchedule",
+              "host": [
+                "{{base_url}}"
+              ],
+              "port": "81",
+              "path": [
+                "query",
+                "report",
+                "querySchedule"
+              ]
+            },
+            "description": "**请求参数**\n\n```\nisExport:true.  // 是否导出\njsonTitle: {↵    \"enTitles\": \"applySerialNumbers,departmentName,officeName,groupName,employeeId,userName,serviceTypeName,startTime,endTime,durationHours,remark,status\",↵    \"chTitles\": \"申请流水号,部门,科室,班组,员工号,员工姓名,日程名称,日程开始时间,日程结束时间,时长,备注,审批状态\"↵  }  // 导出的格式\nstartTime:2025-01-01 //时间范围（开始时间）\nendTime:2025-11-11 //  时间范围（结束时间）\nemployeeIds:760703 //员工id\napplySerialNumbers:WF003010000000015 //申请流水号\nstatus:申请休假 // 审批状态\n\n ```\n\n**返回参数**\n\n``` json\n{\n    \"type\": 0,\n    \"message\": \"SUCCESS\",\n    \"data\": {\n        \"totalCount\": 1,\n        \"pageSize\": 30,\n        \"pages\": 1,\n        \"pageIndex\": 1,\n        \"dataList\": [\n            {\n                \"applySerialNumbers\": \"WF003010000000015\", // 申请流水号\n                \"departmentName\": \"高端服务部\", // 部门\n                \"officeName\": \"专项团队\", // 课室\n                \"groupName\": \"专项一班\", // 班组\n                \"employeeId\": \"760703\", // 员工id\n                \"userName\": \"冯雯雯\", // 姓名\n                \"serviceTypeName\": \"其他（事假）\", //日程名称\n                \"startTime\": \"2025-09-01 02:04:05\", // 开始时间\n                \"endTime\": \"2025-09-10 05:05:09\", // 结束时间\n                \"durationHours\": 73.0, // 持续小时数\n                \"remark\": null,  // 备注\n                \"status\": \"申请休假\" // 审批状态\n            }\n        ],\n        \"columnList\": [\n            \"applySerialNumbers:申请流水号\",\n            \"departmentName:部门\",\n            \"officeName:科室\",\n            \"groupName:班组\",\n            \"employeeId:员工号\",\n            \"userName:员工姓名\",\n            \"serviceTypeName:日程名称\",\n            \"startTime:日程开始时间\",\n            \"endTime:日程结束时间\",\n            \"durationHours:时长\",\n            \"remark:备注\",\n            \"status:审批状态\"\n        ],\n        \"columnListAll\": [\n            \"applySerialNumbers:申请流水号\",\n            \"departmentName:部门\",\n            \"officeName:科室\",\n            \"groupName:班组\",\n            \"employeeId:员工号\",\n            \"userName:员工姓名\",\n            \"serviceTypeName:日程名称\",\n            \"startTime:日程开始时间\",\n            \"endTime:日程结束时间\",\n            \"durationHours:时长\",\n            \"remark:备注\",\n            \"status:审批状态\"\n        ],\n        \"otherObj\": null\n    },\n    \"handleLog\": null\n}\n\n ```"
+          },
+          "response": []
+        },
+        {
+          "name": "下载报表",
+          "id": "1ff583bb-cab4-4410-b68b-6d7af9bb0862",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "token",
+                "value": "DF58466158484382054613A8DB544DAB",
+                "type": "text"
+              },
+              {
+                "key": "pass-over",
+                "value": "let it go",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "https://192.168.0.33:31055/mtex/file/download/get?suf=$business$/excelFile/日程申请表_20251215094750_0412.xlsx&getFromNop=1",
+              "protocol": "https",
+              "host": [
+                "192",
+                "168",
+                "0",
+                "33"
+              ],
+              "port": "31055",
+              "path": [
+                "mtex",
+                "file",
+                "download",
+                "get"
+              ],
+              "query": [
+                {
+                  "key": "suf",
+                  "value": "$business$/excelFile/日程申请表_20251215094750_0412.xlsx"
+                },
+                {
+                  "key": "getFromNop",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "713bd29c-9d9c-4701-879d-1da1799a0b8b"
+    },
+    {
+      "name": "測試環境調用案例",
+      "id": "31abf76e-1e9f-4233-ae9a-102f45206e77",
+      "protocolProfileBehavior": {
+        "strictSSL": false,
+        "followRedirects": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "pass-over",
+            "value": "let it go",
+            "type": "string"
+          },
+          {
+            "key": "Token",
+            "value": "DF58466158484382054613A8DB544DAB",
+            "type": "string"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "isExport",
+              "value": "true",
+              "type": "text"
+            },
+            {
+              "key": "jsonTitle",
+              "value": " {\n    \"enTitles\": \"conversationId,departmentName,officeName,groupName,employeeId,userName,serviceTypeName,startTime,endTime,durationHours,remark,queueStatus\",\n    \"chTitles\": \"申请流水号,部门,科室,班组,员工号,员工姓名,日程名称,日程开始时间,日程结束时间,时长,备注,审批状态\"\n  }",
+              "type": "text"
+            },
+            {
+              "key": "title",
+              "value": "日程申请表",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://192.168.0.33:31055/mtex/query/report/querySchedule",
+          "protocol": "https",
+          "host": [
+            "192",
+            "168",
+            "0",
+            "33"
+          ],
+          "port": "31055",
+          "path": [
+            "mtex",
+            "query",
+            "report",
+            "querySchedule"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "dc23683d-2dba-461a-b438-ed2c6f3d3448",
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "18a94d3a-f05c-4d87-aaf1-dce7c22c6355",
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "id": "bc4d9900-65fd-423c-91ce-f1c1ee00e4b2",
+      "key": "base_url",
+      "value": ""
+    }
+  ]
+}
